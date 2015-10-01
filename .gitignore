@@ -1,0 +1,6 @@
+/vendor
+App/config/config.local.neon
+composer.lock
+tests/_output/*
+
+.idea

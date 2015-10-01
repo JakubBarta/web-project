@@ -1,0 +1,32 @@
+# WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# http://nette.org/security-warning
+
+parameters:
+
+
+php:
+	date.timezone: Europe/Prague
+
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenter\*Presenter
+
+doctrine:
+	user: %database.user%
+	password: %database.password%
+	dbname: %database.dbname%
+
+session:
+	expiration: 14 days
+
+
+services:
+	router: App\Route\RouterFactory::createRouter
+
+extensions:
+	console: Kdyby\Console\DI\ConsoleExtension
+	events: Kdyby\Events\DI\EventsExtension
+	annotations: Kdyby\Annotations\DI\AnnotationsExtension
+	doctrine: Kdyby\Doctrine\DI\OrmExtension
